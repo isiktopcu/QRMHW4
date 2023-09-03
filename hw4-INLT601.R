@@ -165,12 +165,11 @@ fixed <- glm(turnout_main_election ~ unemployment * ideology + education +
              na.action = na.omit)
 summary(fixed)
 
-#in order to concentrate on the estimates of the other variables (such as unemployment, education, etc.), 
-#we would need to adjust for time-invariant unobserved features for each unit of analysis (individuals, states, or years, depending on our data). 
-#this will provide us unbiased estimates of the important variables, 
-#which is especially helpful if you think that there are unobserved factors that influence voter turnout 
-#and are connected with our independent variables.
-#Numerous factors, including age, education, politics, and unemployment, have statistical significance.
+#for each unit of analysis (individuals, states, or years, depending on our data), 
+#we would need to account for time-invariant unobserved characteristics in order to focus on the estimates of the other variables (such as unemployment, education, etc.). 
+#if we believe that there are unobserved factors that affect voter turnout and 
+#are related to our independent variables, this will provide us objective estimates of the key variables.
+#age, education, politics, and unemployment are just a few of the variables that are statistically significant.
 ---------------------------------------------------------------------------------
 
 #Two way fixed effect ( unit + time) 
@@ -182,7 +181,7 @@ fixed2=glm(turnout_main_election ~ unemployment* ideology + education + polity+
 summary(fixed2)
 
 
-#most predictors are significant and suggest practical implications—for example, 
+#most predictors are significant for example, 
 #a rise in unemployment seems to deter voter turnout. 
 --------------------------------------------------------------------------------
 
@@ -217,7 +216,7 @@ coeftest(mod, vcovCL1)
 ---------------------------------------------------------------------------------
 #what's next? 
 
-#null model benchmarking: Assess the added value of predictors over a null model.
-#categorical variables: Include dummies for categories like gender and socio-economic status.
-#model selection: Employ a random effects model, justified via a Hausman test.
-#alternative economic indicators: Test models using inflation and GDP growth as additional explanatory variables.
+# 1 asssess the usefulness of predictors over a null model by benchmarking the #null model.
+# include dummies for categories like gender and socioeconomic status when using categorical variables.
+# model choice: Use a random effects model that is supported by a Hausman test.
+# Test models using inflation and GDP growth as extra explanatory variables to identify alternative economic indicators.
