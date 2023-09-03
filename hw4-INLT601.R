@@ -129,13 +129,13 @@ summary(mod)
 #the intercept is significant given that even without the effects of independent variables, 
 #its highly possible there are other factors which explain vote turnout
 
-#inflation * ideology: this represents both the main effects of unemployment and ideology, as well as their interaction term. 
-#It tries to capture how the effect of unemployment on voter turnout changes with 
+#inflation * ideology: this represents both the main effects of inflation and ideology, as well as their interaction term. 
+#It tries to capture how the effect of inflation on voter turnout changes with 
 #varying levels of ideological self-placement.
 #in this case, deviance of residuals are the minimum and maximum values are -2.9627 and 1.7144 respectively,
 #which could be indicative of model fit.
 #our model model explains a considerable amount of variability in voter turnout.
-#Several predictors are highly significant, although unemployment and ideology do not seem to interact in affecting voter turnout.
+#several predictors are highly significant, although unemployment and ideology do not seem to interact in affecting voter turnout.
 #we may want to look into the missing data and run additional diagnostics to validate the model's assumptions and fit.
 
 deviance_resid <- resid(mod, type = "deviance")
@@ -145,6 +145,7 @@ plot(predict(mod, type="response"), deviance_resid, xlab="Fitted values", ylab="
 
 ---------------------------------------------------
 #Fixed Effects 
+
 install.packages("plm")
 library(plm)
 fixed <- plm(turnout_main_election ~ unemployment + ideology + education + 
