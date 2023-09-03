@@ -154,7 +154,7 @@ fixed <- plm(turnout_main_election ~ unemployment + ideology + education +
              model = "within")  # "within" specifies fixed effects
 summary(fixed)
 
-#One Way Fixed Effect 
+#One Way Fixed Effect (time)
 
 fixed <- glm(turnout_main_election ~ unemployment * ideology + education + 
                polity + age + voting_procedure + gdp_per_cap + inflation + 
@@ -172,7 +172,7 @@ summary(fixed)
 #Numerous factors, including age, education, politics, and unemployment, have statistical significance.
 ---------------------------------------------------------------------------------
 
-#Fixed Effects 2 
+#Two way fixed effect ( unit + time) 
 
 fixed2=glm(turnout_main_election ~ unemployment* ideology + education + polity+
             age + voting_procedure + gdp_per_cap + inflation + political_information + age_of_current_regime + 
